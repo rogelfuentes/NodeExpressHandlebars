@@ -18,11 +18,6 @@ var pizza = {
       cb(res);
     });
   },
-  delete: function(condition, cb) {
-    orm.deleteOne("pizzas", condition, function(res) {
-      cb(res);
-    });
-  }
 };
 
 // Export the database functions for the controller (catsController.js).
