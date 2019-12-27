@@ -1,38 +1,40 @@
-<h1>Pizzas!</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 text-center" id="top-bar">
+			<h1> The Italian Pizza!! </h1>
+			<p>Enter a pizza you want to eat Click the "Submit" button.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 text-center enter_section">
+			<form action="/pizzas/create" method="POST">
+				<input type="text" class="form-control" name="pizza_name" value="" id="enter_text">
+		</div>
+		<div class="col-md-2 text-right enter_section">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
+		</div>
+	</div>
 
-<h2>Pizzas that are ready to eat!</h2>
-
-<ul>
-  {{#each pizzas}}
-    {{#unless devoured}}
-      {{> pizzas/pizza-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Pizzas that are devoured!</h2>
-
-<ul>
-  {{#each pizzas}}
-    {{#if devoured}}
-      {{> pizzas/pizza-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Order a Pizza</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Pizza Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  {{!-- <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Meal
-  </div> --}}
-
-  <button type="submit">Add Pizza</button>
-</form>
+	<div class="row">
+		<div class="col-md-6 text-center ready">
+			{{#each pizza_data}}
+			{{#unless this.devoured}}
+			{{this.id}}. {{this.pizza_name}}{{this.Date}}
+			<form class="devour-form button-size bevuor_bottom">
+				<input type="hidden" class="pizza_id" type="text" value={{this.id}}>
+				<button type="submit" class="btn btn-default devour">Devour it!</button>
+			</form>
+			{{/unless}}
+			{{/each}}
+		</div>
+	</div>
+	<br>
+	<div class="col-md-6 text-left">
+		{{#each pizza_data}}
+		{{#if this.devoured}}
+		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.pizza_name}}">
+		{{/if}}
+		{{/each}}
+	</div>
+</div>

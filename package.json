@@ -1,7 +1,7 @@
 {
-  "name": "mvc_design",
+  "name": "node_what_todo",
   "version": "1.0.0",
-  "description": "",
+  "description": "-Node \r -Express \r -MySQL \r -Handlebars \r -Jquery",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,5 @@
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0"
   },
-  "devDependencies": {
-    "handlebars-helper-css": "^0.1.0"
-  }
+  "devDependencies": {}
 }
